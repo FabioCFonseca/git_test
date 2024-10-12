@@ -20,6 +20,23 @@ Uma branch é uma ramificação do projeto, criada a partir do estado exato de u
 
 O principal propósito de uma branch é oferecer um ambiente de desenvolvimento independente, onde novas funcionalidades podem ser implementadas ou bugs corrigidos sem impactar a branch principal, que geralmente contém o código estável e revisado. Depois que as alterações realizadas na branch são concluídas, ela é submetida a uma Pull Request (PR), durante a qual as mudanças são revisadas. Após a aprovação, a branch é mergeada de volta à principal, integrando as novas contribuições ao projeto.
 
+### Merge
+O merge permite integrar as mudanças de uma branch em outra, criando um commit com dois pais. O merge 'amarra' as branches, permitindo que a branch que recebeu o merge tenha as alterações de ambas. Quando realizamos um merge entre duas branches, o Git usa a referência de cada uma delas, geralmente o commit mais recente, e encontra um commit anterior comum às duas branches. A partir desse ponto, ele combina as sequências de commits.
+
+### Fast forward merge
+O fast-forward merge ocorre quando não há uma bifurcação no histórico entre duas branches que estão sendo mergeadas. Dessa forma, não há necessidade de criar um commit de merge para combinar as branches. O Git simplesmente atualizará a referência da branch que está recebendo o merge para o commit mais recente da outra branch. Esse processo é comumente usado quando se faz um git pull do repositório remoto para atualizar as mudanças de outros desenvolvedores na sua branch local.
+
+### Rebase
+O rebase é um comando que, assim como o merge, integra commits de outra branch. A principal diferença é que o rebase move os commits a serem integrados para o topo da branch atual, reescrevendo o histórico de commits, uma vez que a cronologia original é alterada e novos hashes para esses commits são gerados. A vantagem do rebase é que ele proporciona um histórico de commits mais limpo, com as alterações sendo incluídas de forma linear, sem os commits de merge que podem poluir o histórico. 
+
+Porém, o rebase também traz desvantagens como a perda do histórico original, o que pode dificultar a rastreabilidade das mudanças e a análise da evolução do código, especialmente em casos de bugs. Tambem ao usar rebase em branches compartilhadas, há o risco de causar problemas de sincronização entre desenvolvedores, já que o histórico reescrito pode gerar inconsistências ao tentar integrar alterações de outros membros da equipe.
+
+### Cherry pick
+O comando cherry-pick permite integrar um commit específico, identificado pelo seu hash, de outra branch à branch atual. Em vez de trazer todo o histórico de uma branch, como acontece com o merge ou rebase, o cherry-pick copia apenas o commit selecionado e o aplica na branch atual. Isso é útil quando você quer incluir uma mudança específica feita em outra branch, sem trazer outros commits que possam não ser relevantes ou desejados.
+
+## Conflitos
+
+
 ## Estratégias de branching
 
 ### GitFlow
