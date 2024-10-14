@@ -34,7 +34,14 @@ Porém, o rebase também traz desvantagens como a perda do histórico original, 
 ### Cherry pick
 O comando cherry-pick permite integrar um commit específico, identificado pelo seu hash, de outra branch à branch atual. Em vez de trazer todo o histórico de uma branch, como acontece com o merge ou rebase, o cherry-pick copia apenas o commit selecionado e o aplica na branch atual. Isso é útil quando você quer incluir uma mudança específica feita em outra branch, sem trazer outros commits que possam não ser relevantes ou desejados.
 
+### Pull
+O comando git pull combina dois comandos distintos: o git fetch, que busca as alterações commitadas no repositório remoto e as traz para o repositório local, e o git merge, que mergea essas alterações na sua branch atual. Normalmente, o git merge resulta em um fast-forward merge, quando não há divergências. O git pull é essencial para manter seu repositório local sincronizado com as alterações feitas por outros desenvolvedores no projeto.
+
+### Stash
+O stash é uma funcionalidade auxiliar do Git que permite armazenar temporariamente as mudanças feitas no repositório local em uma área isolada. Essa funcionalidade é útil quando é necessário mudar de atividade sem perder as alterações em andamento, que ainda não estão prontas para um commit. Dessa forma, as mudanças podem ser guardadas e reaplicadas posteriormente. Vale destacar que, ao reaplicar as mudanças com o stash, elas também podem gerar conflitos, da mesma forma que acontece em operações de merge.
+
 ## Conflitos
+Durante o processo de merge, as branches envolvidas podem ter divergido, ou seja, ambas podem conter commits que a outra não possui, muitas vezes no mesmo arquivo ou um arquivo foi editado em uma branch e deletado na outra. Em alguns desses casos, o Git não consegue determinar automaticamente quais alterações devem ser mantidas. Isso gera um merge conflict, momento em que o Git precisa de intervenção manual para resolver como o arquivo deve ficar após o merge. Quando um merge conflict acontece, o Git sinaliza os arquivos problemáticos e marca as áreas conflitantes com delimitadores específicos, mostrando as versões das alterações feitas em cada branch. O desenvolvedor, então, escolhe quais mudanças devem ser aceitas ou combinadas para concluir o processo.
 
 
 ## Estratégias de branching
