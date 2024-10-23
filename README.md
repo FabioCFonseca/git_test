@@ -1,8 +1,12 @@
 # Teste Git
 
 ## O que é Git:
+O Git é um sistema de controle de versão amplamente utilizado para colaborar de forma eficiente em projetos. Ele permite que as equipes acompanhem cada alteração feita no código, possibilitando voltar a versões anteriores, gerenciar o trabalho simultâneo e garantir o desenvolvimento contínuo do projeto.
 
-## Git init
+#### Por que usar o Git?
+Em projetos de software de grande escala, sistemas de controle de versão, como o Git, garantem que todas as alterações no código sejam bem documentadas, reversíveis e fáceis de gerenciar. Com o Git, os desenvolvedores podem criar snapshots do código em diferentes estágios, permitindo reverter para versões anteriores quando necessário, além de facilitar a resolução de conflitos.
+
+O uso de branches permite que os desenvolvedores trabalhem simultaneamente no mesmo projeto, desenvolvendo novas funcionalidades ou corrigindo bugs de maneira independente. Depois, essas mudanças podem ser integradas ao projeto principal sem interferir no trabalho dos outros. O Git também mantém um histórico completo de todas as alterações realizadas no código, possibilitando a revisão de modificações anteriores, a identificação de quem fez o quê, e garantindo que nada seja perdido. Esse histórico facilita o entendimento da evolução do projeto ao longo do tempo.
 
 ## Commit
 O commit é um snapshot do projeto no momento em que foi realizado, capturando todas as mudanças que foram previamente adicionadas à área de stage. Ele armazena não apenas as alterações no código, mas também metadados importantes, como a data e hora (timestamp), o autor, o hash único que identifica o commit, e o hash do commit pai, que estabelece a sequência no histórico de alterações. O commit é o _core_ do versionamento no Git, permitindo que o histórico de mudanças no projeto seja rastreado de forma organizada. Ele garante que cada modificação seja registrada de forma transparente, possibilitando reverter, comparar, e entender a evolução do código ao longo do tempo.
@@ -47,5 +51,18 @@ Durante o processo de merge, as branches envolvidas podem ter divergido, ou seja
 ## Estratégias de branching
 
 ### GitFlow
+O GitFlow é uma estratégia de branching que organiza o ciclo de desenvolvimento em diferentes tipos de branches. Existem duas branches de vida longa: a main e a develop.
 
+Main: contém o código pronto para produção, ou seja, estável e liberado para os usuários finais.
+Develop: é a principal branch de integração, onde novas funcionalidades são incorporadas e testadas antes de serem preparadas para lançamento.
+A partir da branch develop, são criadas branches de curta duração para o desenvolvimento de funcionalidades específicas, chamadas de feature branches. Essas branches são dedicadas ao desenvolvimento de pequenas funcionalidades, que, quando finalizadas, são integradas de volta à develop ou, em alguns casos, a uma branch intermediária, como uma epic branch, que agrupa várias funcionalidades relacionadas.
+
+Quando a branch develop acumula funcionalidades suficientes para uma nova versão do aplicativo, cria-se uma branch de release. Essa branch é usada para testes finais e estabilização da versão. Após os testes, a branch release é mergeada na main, levando as novas funcionalidades para produção, e também na develop, garantindo que o estado da branch de desenvolvimento reflita as correções e melhorias da nova versão.
+
+Se, após o merge na main, for detectado algum bug em produção, cria-se uma branch hotfix. Essa branch é destinada à resolução rápida do problema. Após a correção, a branch hotfix é mergeada na main, para resolver o bug em produção, e na develop, para que o código de desenvolvimento se mantenha atualizado com a correção.
+
+#### Vantagens e desvantagens
+Uma das principais vantagens do GitFlow é que o código passa por diversos reviews e testes antes de ser mergeado em produção. Embora esse processo seja mais demorado, ele garante uma maior qualidade do código final e reduz as chances de erros em produção.
+
+Por isso, o GitFlow é uma estratégia recomendada para equipes grandes ou com menos experiência onde a qualidade e a estabilidade são prioridades. No entanto, sua estrutura pode ser considerada pesada para projetos menores ou equipes que adotam um ciclo de desenvolvimento mais ágil, onde há necessidade de deploys mais frequentes.
 
