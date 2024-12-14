@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TalkWithUsPage extends StatelessWidget {
-  const TalkWithUsPage({super.key});
+class TalkWithUsPage2 extends StatelessWidget {
+  const TalkWithUsPage2({super.key});
 
   @override
   Widget build(BuildContext context) {
