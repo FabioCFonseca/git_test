@@ -66,3 +66,28 @@ Uma das principais vantagens do GitFlow é que o código passa por diversos revi
 
 Por isso, o GitFlow é uma estratégia recomendada para equipes grandes ou com menos experiência onde a qualidade e a estabilidade são prioridades. No entanto, sua estrutura pode ser considerada pesada para projetos menores ou equipes que adotam um ciclo de desenvolvimento mais ágil, onde há necessidade de deploys mais frequentes.
 
+
+## Repositório local, remoto e permissões
+
+### Remote
+É uma referência a algum repositório que você deseja realizar push e pulls. Este repositório pode estar hosteado em algum servidor ou até na máquina local em outro diretório.
+
+### Local
+O repositório local é uma cópia local do remote em que podemos fazer alterações isoladas localmente e possivelmente subir essas alterações (push) ou recuperar alterações que foram adicionadas ao remote (pull/fetch)
+
+### Permissões
+
+#### Visibilidade do repositório
+
+#### Público
+Qualquer pessoa pode ver, clonar ou forkar o repositório, também podem interagir com issues e pull requests
+
+#### Privado
+Somente colaboradores convidados podem ver, clonar ou forkar o repositório, além de criar issues e pull requests. É possível criar roles para os colaboradores do projeto para administrar os tipos ações que estes podem realizar no repositório
+
+#### Rulesets
+
+
+
+
+
