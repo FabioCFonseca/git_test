@@ -70,22 +70,45 @@ Por isso, o GitFlow é uma estratégia recomendada para equipes grandes ou com m
 ## Repositório local, remoto e permissões
 
 ### Remote
-É uma referência a algum repositório que você deseja realizar push e pulls. Este repositório pode estar hosteado em algum servidor ou até na máquina local em outro diretório.
+É uma referência a algum repositório que você deseja realizar push e pulls. Este repositório pode estar hosteado em algum servidor ou até na máquina local em outro diretório e ele irá manter a relação de tracking com o repositório local.
 
 ### Local
-O repositório local é uma cópia local do remote em que podemos fazer alterações isoladas localmente e possivelmente subir essas alterações (push) ou recuperar alterações que foram adicionadas ao remote (pull/fetch)
+O repositório local normalmente é uma cópia do remote em que podemos fazer alterações isoladas localmente e possivelmente subir essas alterações (push) ou recuperar alterações que foram adicionadas ao remote (pull/fetch)
 
 ### Permissões
 
 #### Visibilidade do repositório
 
 #### Público
-Qualquer pessoa pode ver, clonar ou forkar o repositório, também podem interagir com issues e pull requests
+Qualquer pessoa pode ver, clonar ou forkar o repositório, também podem interagir com issues e pull requests. Não podem fazer pushes se não forem colaboradores
 
 #### Privado
-Somente colaboradores convidados podem ver, clonar ou forkar o repositório, além de criar issues e pull requests. É possível criar roles para os colaboradores do projeto para administrar os tipos ações que estes podem realizar no repositório
+Somente colaboradores convidados podem ver, clonar ou forkar o repositório, além de criar issues e pull requests. É possível criar roles para os colaboradores do projeto para administrar os tipos ações que estes podem ou não realizar no repositório
 
 #### Rulesets
+Rulesets são um conjunto nomeado de regras aplicadas em um repositório no github para impor regras de segurança, qualidade, workflows e controle de acesso. Também é possível definir quais roles ou times podem fazer a bypass do ruleset 
+
+
+## Git Flow
+
+### Feature branch 
+Originadas da develop ou Epic e são mergeadas de volta nelas
+
+### Release branch
+Originada da develop e mergeada na develop e master. 
+Todas as features definidas para a release devem estar na develop, features programadas para releases futuras devem esperar a branch da release atual ser feita.
+O número da versão é definido no momento da criação da branch, o commit é feito na branch de release.
+Não é permitido adicionar novas features ou alterações significativas na release branch.
+Quando for mergeado na main deve conter a tag da release.
+Após ser mergeada na main deve também ser mergeada na develop, após isso pode ser deletada.
+
+### Hotfix
+Originada a partir da main e mergeada na main e na develop.
+Usada para corrigir um bug em produção sem afetar a develop.
+Mudar o número da versão na branch hotfix.
+
+
+
 
 
 
